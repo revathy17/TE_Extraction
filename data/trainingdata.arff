@@ -1,0 +1,2158 @@
+@relation temporalexpression
+
+@attribute phrase string
+@attribute hasDay {0,1}
+@attribute hasMonth {0,1}
+@attribute hasNumString {0,1}
+@attribute hasRefExpr1 {0,1}
+@attribute hasRefExpr2 {0,1}
+@attribute hasTimeRef {0,1}
+@attribute hasDatePattern {0,1}
+@attribute hasTimePattern {0,1}
+@attribute hasTemporalModifier {0,1}
+@attribute hasMeasurementUnit {0,1}
+@attribute class {NONE,DURATION,DATE,TIME,RDT,RT}
+
+@data
+'Patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'one relapse', 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXX XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX am', 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, TIME
+'his PCP', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Dr. Foutchner', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'Monday', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, RDT
+'This', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, NONE
+'XXXX-XX-XX XX :', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'you', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX-XXX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'your patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'FYFEUARDFEL', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'TADE', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the Emergency Department', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'this prosthesis', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, NONE
+'morning of her surgery', 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, RDT
+'Ph University', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Medical Center', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX/XX/XXXX XX:XX PM', 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, DATE
+'This', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, NONE
+'you', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'your patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'GLYN', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'AEA', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the Emergency Department', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Daughtersvillshamen & apos', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Hospital', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'night before her surgery', 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, RDT
+'XX/XX/XXXX XX:XX PM', 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, DATE
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'q day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RT
+'a XX year old gentleman', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'who', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'lower back pain', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'an accident', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'work', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'this month', 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, RDT
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'This gradually', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, NONE
+'June XXXX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'he', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'recurrent severe right', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'sciatica', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the next three days', 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, DURATION
+'he', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'his activity', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'stairs', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X-X-X', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'Physical Therapy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX-year-old', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DURATION
+'pain', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'which', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'oral analgesics', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Mr. Prehekote', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'only male', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'who', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'adenocarcinoma', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the prostate', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'He', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'transurethral resection', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the prostate', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'one year', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'persistent urinary retention', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'February XX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'time', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Eifro Medical Center', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'failure', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'hematocrit', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the increasing creatinine', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X.X', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'February XX , XXXX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'a left nephrostomy tube', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX pm', 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, TIME
+'Genearocktemp Ry Health', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'March X , XXXX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'transfusion', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the patient & apos', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX.X', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'discharge', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'She', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'three flights', 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, NONE
+'antiarrhythmic agents', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'October', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'this year', 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, RDT
+'a XX-year-old', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DURATION
+'she', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'atrial fibrillation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a rapid ventricular rate', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'several days', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, NONE
+'decreased exercise tolerance', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'She', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Coumadin', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a failed attempt', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'DC electrical cardioversion', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX/XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'There', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'no evidence', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'left ventricular hypertrophy or asymmetric septal hypertrophy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'which', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'an issue', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'that', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'an echocardiogram', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Ownra Cin', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'New Mexico', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX/XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Propafenone XXX mg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'three times a day', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, RT
+'an attempt', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'electrical cardioversion', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'seven doses', 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, NONE
+'The Propafenone', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Amiodarone XXX mg t.i.d.', 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, NONE
+'which', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'two days', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'home', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Amiodarone XXX mg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'XX/XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'An electrocardiogram', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'no evidence', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'QT prolongation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX-year-old patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DURATION
+'discharge', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'pulmonary function tests', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'home', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'today', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, RDT
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a XX year old patient', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'Dr. Laymie Fournier and Dr. Leebjescobe', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'Co', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Saorlirv Frea', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'West Virginia', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'who', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a bout', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'double pneumonia', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'May XXXX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'he', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Centdick Naco Hospital Medical Center', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'He', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX-XXX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'a transient episode', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'headache and disorientation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'that time', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, RDT
+'XX/XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'an intra-aortic balloon pump', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Dr. Thorebreutz', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'him', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the operating room', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'he', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'quadruple coronary artery bypass', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'you', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'your patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'DOUETNOUNBREUNKOLL', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'STENRESLYSE', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the Emergency Department', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Ro Woodma Healthcare', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX/XX/XXXX XX:XX AM', 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, DATE
+'Ms. Tikrhalt', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'an XX year old female', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'previously healthy ,', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'who', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'q day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RT
+'X months', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'dysphagia', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X/XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'she', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the operating room', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'she', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a neart total gastrectomy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a retrocolic Bill-Roth II gastrojejunostomy reconstruction', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'her wounds', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'incident', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the staples', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the XXth postoperative day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RDT
+'discharge', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'discharge', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the XXth postoperative day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RDT
+'Significant', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'motor vehicle accident', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'exploratory laparotomy and splenectomy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'tonsillectomy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a child', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'pneumonia', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the past', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'hepatitis C', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'recent diagnosis', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'hepatocellular carcinoma', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'He', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X:XX PM', 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, TIME
+'July XX , XXXX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'He', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'one pillow', 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, NONE
+'C-spine surgery', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'spinal stenosis', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a question', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'myelopathy and radiculopathy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'residual spastic paresis and monoparesis', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the left upper extremity', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'admission', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'anemia , hypercholesterolemia', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'narcolepsy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the past X years', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'Dexedrine', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'impotence', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a week', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'decreased testosterone', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X-X-X', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'status post implant , peptic ulcer disease', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'status post duodenal resection', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'cervical stenosis', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'status post decompression & apos', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX , hernia , status post herniorrhaphy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'an XX year old female', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'XXXX-XX-XX XX :', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'fatigue', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'short term memory', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the past six months', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'The past six weeks', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'she', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'hot sensation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'sensation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the hands', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the past five weeks', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'the patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the right leg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'weakness', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'that side', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Significant', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a history', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'hypertension', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'basal cell carcinoma', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the nose', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'cataracts', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a hysterectomy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Harl Wa Healthcare Network', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'April XX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'stable condition', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'q day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RT
+'the Operating Room', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'April XX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a left parietal stereotactic guided brain biopsy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'He', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'progressive symptoms', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'congestive heart failure', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'which', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'his evaluation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'his cardiac transplant', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'March', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'morning of admission', 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, RDT
+'He', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'changes', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'twice a day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RT
+'He', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a subtotal colectomy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX/XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'which', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'He', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'urine and blood cultures', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the ED', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'avalox', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'The patient & apos', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'WBC', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX.X', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'discharge', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a peak', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'February X', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'rigid bronchoscopy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'biopsy and upper gastrointestinal endoscopy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'February X , XXXX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'Yesterday afternoon', 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, RDT
+'a central venous line', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'her right subclavian', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'two litres', 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, NONE
+'atypical small cell carcinoma', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the lung', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'chemotherapy and radiation therapy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'She', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'four treatments', 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, NONE
+'brachytherapy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'March', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'May', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'She', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'December', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'she', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'cough', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'strangulation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a XX-year-old', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DURATION
+'attempts', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'solids or drinking liquids', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the Operating Room', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'February X , XXXX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'she', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'rigid and flexible bronchoscopy and upper gastrointestinal endoscopy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'A repeat echocardiogram', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'February XX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'no significant change', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'her previous echocardiogram', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'February XX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'which', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'only a small pericardial effusion', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'A pelvic and abdominal computerized tomography', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'no evidence', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a focal collection or abscess', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'her prolonged intubation and inability', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'wean', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'February XX , XXXX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'she', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a tracheostomy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'The blood cultures', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'February XX , XXXX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'Staphylococcus', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'she', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'septicemia', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Her respirations', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'she', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX:XX a.m.', 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, TIME
+'April X , XXXX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'It', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX/X/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'she', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a decreased range', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'motion', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'both her knees', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'flexion', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'approximately XX degrees', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'maximum physical therapy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'He', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the Fairm', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Ijordcompmac Hospital', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a blood pressure', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a heart rate', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'His blood pressure', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX systolic', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'he', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X-X-X', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'the computerized tomography', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'table', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the scan', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'he', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the operating room', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX:XX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, TIME
+'This', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, NONE
+'ten minutes', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'aortic clamping', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the rupture', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the left renal vein', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'one centimeter', 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, NONE
+'its junction', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the inferior vena cava', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Continuous venovenous hemodialysis', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'July X', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'most', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the remainder', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the patient & apos', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'course', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'July XX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'abdominal irrigation and debridement', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the RICU', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the next three days', 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, DURATION
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'stage D prostate', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'cancer', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'fluid hydration', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the XXth', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'March', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'prostate cancer', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'August', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'the past one month', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'admission', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the patient & apos', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'wife', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a marked decrease', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'p.o. intake', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'a weight loss', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'approximately ten pounds', 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, NONE
+'the preceding two weeks', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a XX year old Hispanic male', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'insulin dependent diabetes mellitus', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'status', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a right above-knee amputation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'five years', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'who', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'four months', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'he', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a small ulceration', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the left great toe', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'which', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'He', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a doctor', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Arizona', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'dressing changes', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'debridement', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'approximately six weeks', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'antibiotics', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Ciprofloxacin . insulin dependent diabetes mellitus', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'fifteen years', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'above-knee amputation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'five years', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'status post motor vehicle accident', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a left great toe buttontoe amputation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'regional ankle block', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'chronic ulcer and osteomyelitis', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the left great toe', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'fever', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a sudden onset', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'ventricular fibrillation arrest', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'rapid atrial fibrillation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'sinus rhythm', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'an electrocardiogram', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'ST elevation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'inferior leads', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'He', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'no prior cardiac history', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, NONE
+'May XXXX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'he', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'chest pain', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'which', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'his left arm', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'the patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'substernal chest pain', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'shortness', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'breath', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'This operation', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, NONE
+'two months', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'increased rest pain', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'She', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'PO Keflex', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'she', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the next ten days', 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, DURATION
+'discharge', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'today', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, RDT
+'he', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'PFTs', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'She', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'cardiac catheterization', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'a left ventricular', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'diastolic pressure', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX millimeters', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'mercury', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'multiple myeloma', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'He', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'an autologous bone marrow transplant', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'Petersly Hospital', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Medical Center', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'About two weeks', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'admission', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'mid', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'pain', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'burning', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'nature', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX-XXX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'radiation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the right lower ribs', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'He', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'twice daily', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, RT
+'Betadine changes', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'January X', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'a chest tube', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a loculated pleural effusion', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'an approximately XX pound weight loss', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'six weeks', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'He', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'abdominal', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'approximately two times', 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, NONE
+'a week', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'therapeutic', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'She', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'she', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Thursday', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, RDT
+'Friday', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, RDT
+'Saturday', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, RDT
+'Sunday', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, RDT
+'it', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX min', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'consuming', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'time', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a meal', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'She', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the neck suture lines Steri-Strips', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX days', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'her usual state', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'health', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'about three weeks', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'admission', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'she', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'increased weakness', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'She', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a Wood Emergency Department', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'six days', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'admission', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'discharge', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the XXth', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'April', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'who', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the medicine service', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'a past history', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'aortic stenosis', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'chest pain', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'who', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'evaluation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'aortic valve replace-ment', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a history', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'exertional angina and chest pain', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'light-headedness', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'nine years', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'which', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'frequency', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the past year', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'admission', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'light-headedness and chest pain', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a dull pressure', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'her neck', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'her substernal area', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'only minimal exertion', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'& quot', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the room & quot', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'she', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'atrial fibrillation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'which', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'spontaneously a few days', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, NONE
+'No ethanol use', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'remote pipe smoking use', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'which', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'he', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX years', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'no illicit drug use', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'two units', 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, NONE
+'packed red blood cells', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the hematocrit', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the following day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RDT
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'gynecologic care', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX years', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'April XXXX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'an increase', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'abdominal GERD and urinary symptoms', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'her', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'initial consultation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Dr. Lentny Farstnappsshee', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'Gobrew Street', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Denlandcobridclevena', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'West Virginia XXXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Tonsillectomy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'removal', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a renal calculus', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'cholecystectomy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'that day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RDT
+'clearance', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the Cardiology Service', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Dr. Shuff', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'her', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'potassium levels', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'two times', 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, NONE
+'she', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'two doses', 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, NONE
+'Mrs. Dua', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'a XX year old white female', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'an unclear history', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'hypertension', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'at least five years', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'this admission', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, NONE
+'She', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'her usual state', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'health', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'around XX:XX', 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, TIME
+'October XX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'the phone', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'difficulty', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'talking', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Ms. Shuffa', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'an EGD and flexible bronchoscopy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X/XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'she', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a history', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'deep venous thrombosis', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'which', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'she', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X months', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'Coumadin', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'He', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'chronic anemia', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'a bone marrow biopsy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'myelodysplastic syndrome', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'he', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a non ST elevation MI', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the RWH', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a cath', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'which', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a XX % RCA', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'which', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'hazy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Yesterday morning', 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, RDT
+'he', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'intermittent substernal chest pain', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'radiation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the left shoulder', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'q day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RT
+'that', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'any activity', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'any motion', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'his shoulders', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'physical exam', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'today', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, RDT
+'any swelling', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'he', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the swelling', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'an adenosine stress test', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'he', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'last week', 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, RDT
+'X minutes', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'XX %', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'predicted heart rate', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the second part', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, NONE
+'the sleep study', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'June XX , XXXX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'X:XX p.m.', 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, TIME
+'RWH', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the Esley Community Hospital', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXth floor sleep lab', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'phone number', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXX-XXX-XXXX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'This', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, NONE
+'you', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'your patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'JEMSKOP', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'COT', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the Emergency Department', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Ro Woodma Healthcare', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX/XX/XXXX XX:XX AM', 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, DATE
+'She', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'cardiac catheterization', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'a left ventricular', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'diastolic pressure', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX millimeters', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'mercury', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'multiple myeloma', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'He', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'radiation therapy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'TX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX cGy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'An MRI', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'gadolinium', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX/XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'the spine', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a right posterior lateral epidural mass', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'TX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'last month', 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, RDT
+'TXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the next XX hours', 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, DURATION
+'transit', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the hospital', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the patient & apos', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'extremity', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'addition', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX am', 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, TIME
+'a five day course', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'intravenous IgG', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'infection control', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Vancomycin', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Yesterday afternoon', 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, RDT
+'his regimen', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX/XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'improved MRSA coverage', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'he', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'erythema', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the lateral right lower extremity', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'This', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, NONE
+'you', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'your patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'CRITCHE', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'NIFREDEDRHET', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the Emergency Department', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Ro Woodma Healthcare', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX/XX/XXXX XX:XX PM', 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, DATE
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'her usual state', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'excellent health', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'July', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'she', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a left clavicular mass', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'she', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Dr. Stonge', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'Bri Health', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a X x X cm', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'mid clavicular mass', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the past four weeks', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'the patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'progressive shortness', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'breath and mid thoracic', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'pain', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'an elective termination', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'her pregnancy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X/XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'An ERCP', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'there', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'next year', 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, RDT
+'a long segment', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'distal narrowing', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the common bileduct', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a transhepatic biliary drain', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'December XX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'January X', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'a chest tube', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a loculated pleural effusion', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a chest xray', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a left apicalpneumothorax', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'chest xray', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'January X', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'an approximately XX pound weight loss', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'six weeks', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'He', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'some constipation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'lighter colored stools', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'darkened urine and fatigue', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'increased shortness', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'breath , orthopnea and dyspnea', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'exertion', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'He', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'abdominal', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'approximately two times', 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, NONE
+'a week', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'therapeutic', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'broad spectrum antibiotics', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a XX day course', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'clinical SBP', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the Operating Room', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'she', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'an exploratory laparotomy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'TAH / BSO', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'omental biopsy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'This', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, NONE
+'you', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'your patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'BREUNDAIL', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'NETFA', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the Emergency Department', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Fairm', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Ijordcompmac Hospital', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX/XX/XXXX XX:XX AM', 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, DATE
+'the fall', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'nipple changes and discomfort', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'She', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a Wood Emergency Department', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'six days', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'admission', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'aerobics', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'three times', 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, NONE
+'a week', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'a couple', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'admission', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the following three medications', 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, NONE
+'a history', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'exertional angina and chest pain', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'light-headedness', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'nine years', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'which', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'frequency', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the past year', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RDT
+'admission', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'light-headedness and chest pain', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a dull pressure', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'her neck', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'her substernal area', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'only minimal exertion', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'& quot', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXX XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the room & quot', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'she', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'atrial fibrillation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'which', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'spontaneously a few days', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, NONE
+'He', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'extubation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'approximately two weeks', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'Bactrim', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a steroid taper', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX/XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'his respiratory rate', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'his oxygen saturation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'He', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the Intensive Care Unit', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX/XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'Gentamicin', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Vancomycin', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Pentamidine', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Prednisone', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'He', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a XX pound weight loss', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'the past XX months', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'an increased appetite . remote pipe smoking use', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'which', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'he', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX years', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXX-XXXX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'two units', 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, NONE
+'packed red blood cells', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the hematocrit', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the following day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RDT
+'Biopsy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'colonoscopy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X/X/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'XX/XX/XXXX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'bowel preparation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the surgery', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX/XX/XXXX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'the patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'atotal abdominal hysterectomy , bilateral salpingooophorectomy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'bilateral node dissection', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'omentectomy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'lysis', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'adhesions', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'removal', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'mass', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'surface', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'transverse colon', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'her', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'potassium levels', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'two times', 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, NONE
+'week', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'Mrs. Dua', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'a XX year old white female', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'an unclear history', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'hypertension', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'at least five years', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'She', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'her usual state', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'health', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'around XX:XX', 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, TIME
+'October XX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'the phone', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'difficulty', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'talking', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'A magnetic resonance imaging study', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'an outpatient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'three months', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'a small vascular malformation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the hemorrhage', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'She', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'bedrest', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'two days', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'trouble', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'postoperative day number three', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, RDT
+'the Foley catheter', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'She', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the emergency room', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX/XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'they', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'an abdominal CT', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'that', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a XX x XX x XX cm pelvic mass', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'multiple enlarged lymph nodes', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'q day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RT
+'Pre Health', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'June XX , XXXX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'the Verg Medical Center Intensive Care Unit', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'evaluation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'thrombotic thrombocytopenic purpura and bronchiolitis obliterans organizing pneumonia', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'May XX , XXXX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'Pre Health', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'fever', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'cough , dyspnea', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a chest x-ray', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a patchy infiltrate', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the right lung', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'May XX , XXXX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'XX %', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'a temperature', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXX.X degrees', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Cerebrovascular accident', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'the pontine region', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'hypertension', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'The opinion', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the Renal', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'renal failure', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'it', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'dialysis', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'dialysis', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'three times', 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, NONE
+'week', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'She', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Dr. Ryna Jescdrig', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'XX-year-old', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Dr. Lenni Lung', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'the Vascular Surgery Department', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'approximately three to four weeks', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'an XX year old male', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'a year', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'next day', 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, RDT
+'a history', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'hypertension', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'who', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'an asymptomatic X cm abdominal aortic aneurysm', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'CT', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the emergency room', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'May', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'He', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'three myocardial infarctions', 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, NONE
+'chronic anemia', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'XXX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'a bone marrow biopsy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'myelodysplastic syndrome', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'he', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a low hematocrit', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'an outpatient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'two weeks', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'admission', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'transfusion', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a XX pack year history', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'tobacco', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX years', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'Mr. Vinktlandfreierm', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'Owaleharbo Tanaminer Hospital', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'which', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'he', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'approximately four days', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'admission mylanta', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX cc', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'Viscous lidocaine', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'every X hours', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RT
+'severe pain', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'mylanta', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'lidocaine', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'bland diet', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXX XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'no caffeine', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'chilli', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'alcohol', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'His family', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'he', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a progressive mental decline', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the past three years', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'Parkinson & apos', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'disease', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Parkinsonism', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'He', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'more movement', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the left side', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X-X-X', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'his body', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the right', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'he', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'his endotracheal tube', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the second day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RDT
+'admission', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'his nasogastric tube', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'October XX , XXXX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'he', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a past medical history', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'coronary artery disease', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'CABG xX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'his non-Q wave MI', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'he', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'weight loss', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX-XX pounds', 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, NONE
+'which', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'he', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'three sets', 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, NONE
+'the prednisone', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'fatigue and myalgias', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'late X/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'sulfasalazine', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'one tab', 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, NONE
+'three times', 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, NONE
+'a day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'A guaiac positive stool', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the month', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'July', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'The patient states', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'his swelling', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'his face', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'two days', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'admission', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a history', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'laryngeal cancer', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'hypertension', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'who', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a six month history', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'q day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RT
+'progressive difficulty', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'ambulation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'previously good health', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'he', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'problems', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'about six months', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'one to two pack xXX year history', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'smoking', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'that', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX years', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'June XXXX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'next month', 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, RDT
+'an EF', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX %', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a course', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Dilantin', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'ten more days', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'She', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the hospital', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'about XX days', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'her', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'admission', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a month', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a history', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'bilateral lung', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the July', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'a work-up', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'an adrenal abnormality', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'approximately fourteen years', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'a four pack', 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, NONE
+'year history', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'a good state', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'health', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'January', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'she', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a serious upper respiratory tract infection', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'weakness and fatigue', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'She', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a weight loss', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX-XX-XX XX :', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'XX pounds', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'the past two months', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Dr. Shatermivaet S Brain', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'X/XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'a history', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'papillary carcinoma', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the thyroid', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'bone involvement', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'possible lung involvement', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'A lung biopsy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X/XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'definitive results', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X/X/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'the patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a right thyroidectomy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'sacrifice', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the right recurrent laryngeal nerve', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the right sternothyroid muscle', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'lower parathyroid', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'He', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'six days', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'penicillin', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Gentamicin', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Ciprofloxacin and Flagyl', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the next seven days', 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, DURATION
+'Portuguese speaking gentleman', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a history', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXX-XXXX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'hypertension', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'diabetes mellitus', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'cholesterol', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'history', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'tobacco use', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'who', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'status post myocardial infarction', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'September', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'February', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'new onset', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'left chest pain', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'arm pain', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'two days', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'his usual state', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'health', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'admission', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'an XX year old female', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'GX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'PX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'who status post total abdominal hysterectomy-bilateral salpingo-oophorectomy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'one years', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'a mixed mesodermal cancer', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'vaginal apex recurrence', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a normal pelvic examination', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'q day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RT
+'CT', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'February', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'one month', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'vagina', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a history', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'coronary artery disease status post myocardial infarction', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'May X , XXXX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'diabetes mellitus', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'Glipizide', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'the patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'bladder papilloma', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'seven times', 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX years', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'a lawyer', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX hours', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'There', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'no major issues', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X/XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'Prednisone XX mg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, DATE
+'X days', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'a falling hematocrit', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'time', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'mild congestive heart failure', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'guaiac positive stool', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'X-X-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'a prolonged course', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'this hospital course',  0, 0, 0, 0, 0, 0, 0, 0, 1, 0, NONE
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a XX year old woman', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'end stage renal disease', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'hemodialysis', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'She', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'status post cadaveric renal allograft', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'an early postoperative transplant nephrectomy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'rupture', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'His ambulation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'assistance', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a transurethral resection', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the prostate', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX/XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'A mammogram', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'November XXXX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'mammography', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'October XXXX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'bilateral breast masses', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'carcinoma', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Fine needle aspiration', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'October XX , XXXX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'atypical cells', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'clusters', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Dr. Berca Gachfrum', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'a right modified mastectomy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'simple mastectomy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'November X , XXXX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'April XXXX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'a decrease', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the pretracheal nodes', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'question', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'some lymphangitic spread', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'some pneumonitis', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'May XXXX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'her first course', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'thiotepa', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Velban', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Methotrexate', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'some red cell transfusions', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX micrograms', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'the fentanyl patch', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'every XX hours', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RT
+'Other things', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the Xth January', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'her clouded thinking', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'mental status', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'January XX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'April XXXX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'lung carcinoma', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'your primary care doctor', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'monday', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'next week', 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, RDT
+'Asthma', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'history', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'atrial fibrillation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'non-small-cell lung cancer', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'his right lung', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Dr. Vital', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'four years', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'admission , status post chemotherapy and radiation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the non-small-cell lung cancer', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'gastroesophageal reflux disease', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the operating room', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'March XX , XXXX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'an uncomplicated right total hip replacement', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Adriamycin XX mg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'DTIC XXX mg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'four days', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'antibiotic prophylaxis', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'quadruple coronary artery bypass graft surgery', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Dr. Elks', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'Feargunwake Otacaa Community Hospital', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'exertional angina', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a positive stress test', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'that three or four grafts', 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, NONE
+'November', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'a small myocardial infarction', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Ona Hospital', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a cardiac catheterization', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a tight left internal mammary artery', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'anterior descending stenosis', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'high grade saphenous vein graft', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'marginal X stenosis and patent obtuse marginal X graft', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'December XX', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'a re-do aortic valve replacement', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'# XX St. Jude', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'re-do coronary artery bypass', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'saphenous vein graft', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the posterior descending artery', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a veno-venous jump graft', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a XX year old female', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'/ p Roux-en-Y gastric bypass', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'elective repair', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a ventral hernia', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X/XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'repair', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a postoperative admit', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'December X', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'total hip replacement', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the first XX hours', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'Please follow-up', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'your Orthopaedic physician', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Wednesday X/X/XX', 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'ultrasound', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'bilateral cystic adnexal masses', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'physical examination', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'another echocardiogram', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'no change or evidence', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'tamponade', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'some mental status changes', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'confusion', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'hallucinations', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'narcotics', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'pOX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'She', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'no change', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'shortness', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'breath or cardiac examination', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'home', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX/XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'X-FU', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Cisplatin chemotherapy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Ri Strength', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a XX year old man', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'a history', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'GERD', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'abdominal pain', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'blood-streaked diarrhea', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'two days', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'Pneumonia', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'partially collapsed lung', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'the past XX years', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'X/XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'X/XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'severe epigastric pain', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X/XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'fevers', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXX.X', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X/XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'exacerbation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'epigastric pain', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'radiation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the left upper quadrant', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Obesity , hypertension', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'lower extremity cellulitis and edema', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'breast cancer', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'right lumpectomy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XRT', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'partial thyroidectomy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'osteoarthritis', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'right leg deformities', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'hernia repair', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX years', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'bilateral cataract surgery', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X packs', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Patient & apos', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'problem', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'four years', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'a pushing', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'her uterus', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the following three years', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'increasing pressure and pain', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the following three years', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'increasing pressure and pain', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX/XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'poor left ventricular function', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'cardiac catheterization', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'admission', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'three vessel disease', 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX-year-old', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DURATION
+'Cardiology', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a three vessel coronary artery bypass graft', 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX/XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'a seventy pack year history', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'smoking', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'ten years', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'problems', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'alcohol', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'His digoxin', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'his Digoxin', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'four days', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'her last visit',  0, 0, 0, 0, 0, 0, 0, 0, 1, 0, NONE
+'levels', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a history', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'thymoma', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'q day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RT
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'chronic obstructive pulmonary disease', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'hypothyroidism', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'who', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Gobay Hos Memorial Hospital', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'an myocardial infarction', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'cardiac catheterization', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'His most recent admission', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX/XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'XX/XX/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'fever and chills', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'The babies', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'elective cesarean section', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX weeks', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'discharge', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'Richard Williams', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Twin number II', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX-X/X weeks', 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, DURATION
+'cesarean section', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'rupture', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'membranes', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Twin number', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'I', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'progressive preterm labor', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Seen', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'GI', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'five vessel coronary artery bypass graft', 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, NONE
+'plan', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'anticoagulation and repeat scope', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Tuesday', 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, RDT
+'XX days', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'/ l LE edema', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'Three days', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'dyspnea', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'exertion', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'stairs', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'assoc w / X-pillow orthopnea', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'PND', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'cocaine use', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'last night', 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, RDT
+'Today', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, RDT
+'his wife', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'him', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the Deanna', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'evaluation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Drinks', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X-X beers', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'a few times', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'no h / o withdrawal symptoms , seizures or DT', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'Snorts cocaine X-X times', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'ASA XXXmg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'followup', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Dr. Lesha Lefebvre', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'XX:XX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, TIME
+'The mother', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'nausea', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'vomiting', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a shortened cervix', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Waltham', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX minutes', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'any episodes', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'apnea or oxygen desaturation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'discharge', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'The antibiotics', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX hours', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'the infant', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the blood cultures', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a head ultrasound', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'normal limits', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Synagis RSV prophylaxis', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'October', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'April', 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'infants', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the following three criteria', 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, NONE
+'the hematocrit', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'records', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'a mass', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the right pelvis', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a XX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'year-old male', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DURATION
+'a history', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'high cholesterol', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'his usual state', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'health', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'room air', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'any evidence', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'respiratory distress', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'any further dusky spells', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'pale episodes', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the XX hours', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'discharge', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'An appointment', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'his primary care doctor', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Dr. Stella Booth', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'Maynard', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'the patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Dr. Granville Hamers', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'Ware', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'cardiology', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'two weeks', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a XX year-old gentleman', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DURATION
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'the Jewish Memorial Hospital', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'South Cove Community Health Center', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'his CABG', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'coronary endarterectomy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'removal', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'RCA stents and retrieval', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the aortic guidewire', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'IVF pregnancy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'IUGR', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X vessel cord', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'diastolic flow and demise', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'twin A', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX weeks', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'Baby', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'parenteral nutrition', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'lipids', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'four days', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'Neurology', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Normal head ultrasound', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'Baby', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'test', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'a XX year-old female', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DURATION
+'the day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RDT
+'admission', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'possible bile leak', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'cholecystectomy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'four days', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'her usual state', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'health', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'four days', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'admission', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a cholecystectomy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Her postop course', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'one day', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'admission', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'abdominal pain', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a normal diet', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'electrician', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Attleboro Donald States', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X weeks', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'his cane', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'chemotherapy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X week', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'Drank ETOH', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X years', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'Mr. Anders', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'X weeks', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'his presentation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'his left knee', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'essentially bed', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X days', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'inflammation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'his L calf / leg', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'X days', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'presentation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Mr. Mcelveen', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'metastatic RCC status post', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'radical nephrectomy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'status post Avastin and sorafenib', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Sutent monotherapy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'mild renal insufficiency', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'shortness', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'breath and fever', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Dana-Farber Cancer Institute', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X/XX-XX/X', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DURATION
+'chest pain', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'cardiac enzymes', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'an echocardiogram', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a pharmacological stress test', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Metastatic renal cell carcinoma', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'status post', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'radical nephrectomy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'St. Margaret & apos', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'Center', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Women & Infants', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX/XXXX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'which point', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the operating room', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a left radial fracture open reduction and internal fixation procedure', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'capillary refill', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X seconds', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'Infectious disease', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'the patient spiked', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the central line', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'intravenous Vancomycin', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'peripheral neuropathy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'kidney transplantation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'diabetic nephropathy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'throat cancer', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'local resection', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'radical neck dissection', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the left', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'postoperative radiation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Lopressor XXX mg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'the morning', 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, RDT
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'continued medical management post surgery', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'postoperative swelling and changes', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'his diskectomy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'Throat cancer status post', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'dissection', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XRT', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'the previously dictated operative note', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'Dr. Lawrence', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'Heparin XXXX units', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'twice a day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RT
+'a history', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'cocaine abuse', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'remission', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X years', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'one relapse', 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, NONE
+'X.X years', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a XX year old male', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'end stage liver disease', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'hepatitis C cirrhosis', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'about X years', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'the St. Margaret & apos', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'Women & Infants multiple times', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'management', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'encephalopathy and ascites', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Part', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the patient & apos', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'chart', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the period', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX-XX-XX to XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DURATION
+'the patient & apos', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'admission', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X.X', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'X.X', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'the time', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, RDT
+'his discharge', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X days', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'XX PM', 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, TIME
+'Urology', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'hematuria', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a cystoscopy transurethral resection', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'prostate placement', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the Operating Room', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'resection', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the left face squamous cell cancer', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the past X days', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'comparison', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'similar ventricular function', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'inferior and inferolateral hypokinesis', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'an assisted living', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'yesterday', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, RDT
+'tonic-clonic activity', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the right side', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX minutes', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'XX mg Tablet Sig', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'One ( X ) Tablet PO', 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, NONE
+'X days', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'the wound care clinic', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'two weeks', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'a history', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'breast cancer', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'known brain mets', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'history', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'PE', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'recent radiation therapy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'steroids', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'myopathy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'sterids', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'her brain mets', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Breast cancer', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'q day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RT
+'side', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X positive lymph nodes', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'chemotherapy and bone marrow transplant', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Tamoxifen', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'brain mets', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'chemotherapy , radiation therapy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Decadron', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'History', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'pulmonary embolism', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'only aspirin', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'brain mets', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Mr. Hohlt', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'a XX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a history', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'hypertension', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'hyperlipidemia', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'prior myocardial infarction', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, NONE
+'a percutaneous transluminal coronary angioplasty', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the right coronary artery', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the Cambridge Health Alliance', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'any prior episodes', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, NONE
+'pain', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'the initial episode', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'pain', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a XX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a history', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'coronary artery disease', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'status post X-vessel coronary artery bypass graft', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'elective right heart catheterization', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'pericardiocentesis Type X diabetes mellitus', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX years', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'past alcoholism', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a half a pint', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'brandy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'three years', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'a XX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a history', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'coronary artery disease', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'status post myocardial infarction', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'status post stent proximal and mid-RCA lesion', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'OM lesion', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a Myoview', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'which', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'inferior wall defect', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'no evidence', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'ischemia', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the hospital', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'the operating room', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'coronary artery bypass graft times', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'four', 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, NONE
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the floor', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'physical therapy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'good condition', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Dr. Ellis', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'four weeks', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'a family meeting', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the patient & apos', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'code', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'comfort measures', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a half pack', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'eight years', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'an elective coronary artery bypass graft', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'status post uterine artery embolization', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'fibroids', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'abdominal pain', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'two days', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'admission', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'vaginal discharge', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'bacterial vaginosis', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'admission', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a prescription', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Flagyl', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'abdominal pain', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'two days', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'one week', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'stable vital signs', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a level', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'physical therapy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'home', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'today', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, RDT
+'Dr. von Diamond', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'an hour', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'approximately three weeks', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'five months', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'brain mets', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'chemotherapy , radiation therapy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Decadron', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'saline washes', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Adaptic dressing changes', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'His throat pain', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'ibuprofen', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Percocet one', 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, NONE
+'an outside hospital emergency room day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, NONE
+'admission', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'IV penicillin', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'home', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the CMED CSRU', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX hours', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'decrease', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'serial exams', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'transfer', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the floor', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'over XX hours', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'IV Unasyn', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'oral regimen', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Augmentin', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'an outpatient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'her symptoms', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'intensity and frequency', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'every', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'She', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'dyspnea', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'daily', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, RT
+'which', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'admission', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Chronic lung disease', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the patient & apos', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'normal pulmonary function tests', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'DLCO', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'a normal CT angiogram', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'two more days', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'Levaquin therapy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'an outpatient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'She', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'home', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'followup', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX-year-old', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Dr. Wilson', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'two weeks', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'a repeat head CT', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Hearing screens', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'both ears', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'symptoms', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'congestive heart failure', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the next XX hours', 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, DURATION
+'discussion', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX weeks', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'cesarean section', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the decompensation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'primary low transverse cesarean section', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'her primary cardiologist', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Shaugnessy-Kaplan Rehab Hospital', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X week', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'Left breast status', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'radical mastectomy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'adjuvant Tamoxifen', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'five years', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'Self', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Arimedex', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'last month', 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, RDT
+'fatigue and dyspnea', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'exertion', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Charles', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Cocaine', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'ETOH', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'IV Heroin', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'two years', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'his son', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'any relapses', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX yo right', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'seizure history', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'/ p craniotomies', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'oligodendroglioma Came', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'neurosurgery', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'clear fluid', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'his incision', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'frontal headache', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'imbalance', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'things', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'his left leg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'tremors', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Dr Fisher', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the general surgeon', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'q day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RT
+'two weeks', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'the brain tumor clinic', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'two weeks', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'stitch removal', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Per daughter', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'pt', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'her USOH', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'two days', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'admission', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a superficial ulcerations', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'her foot', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'erythema', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Brian', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'smoking and drinking', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Daniel', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X hours', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'symptom onset', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'head CT', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'no evidence', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'bleed', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'wife', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'he', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'there', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'some concern', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'symptoms', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'TPA', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Anticoagulation therapy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'heparin and coumadin', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the evening', 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, RDT
+'afternoon', 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, RDT
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'discharge pt', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'rehab', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'ps', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'settings', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'pigtail catheter', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'today', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, RDT
+'monitoring', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Baby Girl Kathryn Frazier', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'triplet III', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the newborn intensive care unit', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'management', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'prematurity', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'You', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Dr. Worden', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'him', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX-XX days', 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, DURATION
+'Dr. Halcomb', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'six weeks time', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'VNA', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'INRs', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the results', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'his PCP or cardiologist', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Coumadin adjustment', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'an XX year old female', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'prior history', 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, NONE
+'non-hodgkins lymphoma', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'/ p Cytoxan', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'a', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'recurrence', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'an appointment', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Dr. Murray', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'X weeks', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'The patient', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Lopressor XX mg p.o.', 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, NONE
+'twice a day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RT
+'good control', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a heart rate', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXs', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXs', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'He', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'follow-up', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Dr. Holloway', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'four weeks', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'the next two days', 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, DURATION
+'admission', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXX XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the patient & apos', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'settings', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'she', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'two days', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'The ceftriaxone', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'four days', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'the hospital', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Levaquin', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX yom', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'PMH', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'HTN', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'hyperchol', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'OSH X day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'black tarry stools X X days', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'He', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'daughter', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X days', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'Her CA-XXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'XXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'XXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'nothing', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'mouth', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'intravenous fluids', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'bed rest', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'serial abdominal examinations', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Wellbutrin XXX mg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'mouth', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'regular diet', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X/XX-X/XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DURATION
+'his extubation Former smoker', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X yrs', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'your primary doctor', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X weeks', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'the hospital', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X:XX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, TIME
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'He & apos', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'d been', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'lower abdominal pain', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a symptom', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'he & apos', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the past', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'his vitals', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a hct', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX.X', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'he', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'hypovolemic', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'his previous hct', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'five months', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'no h / o ETOH / IVDA', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'tob', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX years', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'a colonoscopy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Monday XX-XX', 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'the study', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'his bowel Coumadin X mg Tablet Sig', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'One ( X ) Tablet PO', 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, NONE
+'a day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'your gastroenterologist', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a follow up appointment', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X weeks', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'an XX year old female', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'breast cancer', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'status post lumpectomy / radiation therapy / Tamoxifen ( XXXX )', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'hypertension', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'hyperlipidemia , multiple urinary tract infections', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'dry cough', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'rhinorrhea', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'coryza', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'malaise', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'headache', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'p.o. intake', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'loose bowel movements', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'diarrhea', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'no blood', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'urine output', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'no sick contacts', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'flu', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, DATE
+'Stage', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'status post', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'lumpectomy', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'repeat surgery', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'sentinel node dissection', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX-XX-XX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'The initial bandemia', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a typical influenza presentation', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Levaquin', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'any possibility', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a bacterial superinfection', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'early pneumonia', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a prescription', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'ten more days', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, DURATION
+'Baby boy Liles', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'the X.XXX kg product', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'X mother', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Remarkable', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'an intrauterine fetal demise', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X days', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'a tocolytic', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'effect', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'CBC', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'blood cultures', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XX hours', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'which', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX-XX-XX XX :', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, DATE
+'time ampicillin and gentamicin', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'a XXXX gm infant', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'XX X/X weeks', 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, DURATION
+'the left renal pelvis', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXX-XXXX', 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, NONE
+'delivery', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'postoperative day number', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RDT
+'the day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RDT
+'the second day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RDT
+'the day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RDT
+'that time', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, RDT
+'the following day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RDT
+'a day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, DURATION
+'the first hospital day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RDT
+'postoperative day number', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RDT
+'postoperative day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RDT
+'day number', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RDT
+'the following hospital day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RDT
+'that time', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, RDT
+'the second hospital day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RDT
+'postoperative day number', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RDT
+'day five', 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, RDT
+'postoperative day number', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RDT
+'that same day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RDT
+'the week before', 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, RDT
+'postoperative day X', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RDT
+'the following day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RDT
+'the second day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RDT
+'X times a day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RT
+'two children', 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, NONE
+'per minute', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RT
+'per hour', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RT
+'per day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RT
+'once a day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RT
+'q day', 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, RT
+'XX AM', 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, TIME
+'his next cycle',  0, 0, 0, 0, 0, 0, 0, 0, 1, 0, NONE
+'XX-year-old', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'time', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'X liters', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'Lovenox XX mg SC', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'XX-XX mmHg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'BP XXX/XX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'Lopressor XXX mg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'X.X cm', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'Metformin XXXX mg', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'XX units', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'XXXX gm', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'XX.X cm', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'XX.XX cm', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'XXXX gm', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'X mm', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'XXXX', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, NONE
+'Heparin X,XXX units', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'XXX cc IV fluid', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
+'Levofloxacin XXX mg Tablet Sig', 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, NONE
