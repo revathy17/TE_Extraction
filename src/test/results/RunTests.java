@@ -69,7 +69,6 @@ public class RunTests {
 					double fMeasure = eval.getFMeasure();
 					System.out.println(annotationScheme[i]+"\t"+formatDouble(precision)+"\t"+formatDouble(recall)+"\t"+formatDouble(fMeasure));
 			}			
-			
 	}
 
 	public static String formatDouble(double number) {
@@ -85,6 +84,6 @@ public class RunTests {
 			//classifyData(167,186);
 			printResults(167, 186, true);
 			//classifyData(1, 115);	
-			printResults(1, 115, true);			
+			//printResults(1, 115, true);			
 	}
 }

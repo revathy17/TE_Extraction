@@ -45,13 +45,11 @@ public class OptimizeFunctions {
 						int endIndex = -1;
 						for(Map.Entry<Integer, String> te : indexOfTE.entrySet()) {
 								
-								//String adjacentWord = removePunctuation(wordsOfTE[0]);
-								String adjacentWord = wordsOfTE[0];
+								String adjacentWord = removePunctuation(wordsOfTE[0]);
 								if(te.getValue().equalsIgnoreCase(adjacentWord))
 									begIndex = te.getKey();
 								
-								//adjacentWord = removePunctuation(wordsOfTE[wordsOfTE.length-1]);
-								adjacentWord = wordsOfTE[wordsOfTE.length-1];
+								adjacentWord = removePunctuation(wordsOfTE[wordsOfTE.length-1]);
 								if(te.getValue().equalsIgnoreCase(adjacentWord))
 									endIndex = te.getKey();
 								
@@ -80,8 +78,9 @@ public class OptimizeFunctions {
 						
 						int j =0;
 						for(int i=0; i<sentence.length && j<expression.length; i++) {
-								if (sentence[i].equalsIgnoreCase(expression[j])) {
-										indexOfExpression.put(i, sentence[i]);		
+								String sWord = removePunctuation(sentence[i]);
+								if (sWord.equalsIgnoreCase(expression[j])) {
+										indexOfExpression.put(i, sWord);		
 										j++;
 								} else {
 										indexOfExpression.clear();

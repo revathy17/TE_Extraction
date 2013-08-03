@@ -19,8 +19,10 @@ public class TestAPI {
 					//String chunkerOutput = "(NP She)(VP has)(ADVP also)(VP had)(NP right ovary)(VP was)(VP removed)(SBAR that)(VP was)(VP emerged)(PP in)(NP December 2006)";
 					//String sentence = "Pt was then discharged to Arbour-Fuller Hospital Senior Life where she was in normal state of health until three days ago";
 					//String chunkerOutput = "(NP Pt)(VP was)(ADVP then)(VP discharged)(PP to)(NP Arbour-Fuller Hospital Senior Life)(WHADVP where)(NP she)(VP was)(PP in)(NP her normal state)(PP of)(NP health)(PP until)(NP three days)(ADVP ago)";
-					String sentence = "She is a 35-pack-year smoker but quit 15 years ago.";
-					String chunkerOutput = "(NP She)(VP is)(NP a 35-pack-year smoker)(VP quit)(NP 15 years)(ADVP ago)";
+					//String sentence = "She is a 35-pack-year smoker but quit 15 years ago.";
+					//String chunkerOutput = "(NP She)(VP is)(NP a 35-pack-year smoker)(VP quit)(NP 15 years)(ADVP ago)";
+					String sentence = "Because of this, I believe we should continue Dennis on his current medications which include Avandia 2 mg per day, metformin 2500 mg per day, and Byetta 10 mg b.i.d.";
+					String chunkerOutput = "(PP Because of)(NP this)(NP I)(VP believe)(NP we)(VP should)(VP continue)(NP Dennis)(PP on)(NP (PRP$ his) current medications)(WHNP which)(VP include)(NP Avandia 2 mg)(PP per)(NP day)(NP metformin 2500 mg)(PP per)(NP day)(NP Byetta 10 mg b.i.d)";
 
 					
 					/** Train a Random Forest Classifier

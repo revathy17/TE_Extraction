@@ -90,14 +90,17 @@ public class RunClassifier {
 											p.setPhrase(o.getTemporalExpression());
 											p.setClassifierAnnotation("RDT");
 									} else if(returnClass == 2) {
+											p.setPhrase(o.getTemporalExpression());
 											p.setClassifierAnnotation("RT");
 									}
 							}		
 							if(p.getClassifierAnnotation().equals("RDT")) {
 									Optimize o = new Optimize(sentence, p.getPhrase());
 									int returnClass = o.optimizeTemporalExpression();
-									if(returnClass == 2)
+									if(returnClass == 2) {
+											p.setPhrase(o.getTemporalExpression());
 											p.setClassifierAnnotation("RT");
+									}											
 							}
 							
 					}

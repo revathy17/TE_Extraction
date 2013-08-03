@@ -44,7 +44,8 @@ public class Optimize {
 											setTemporalExpression(temporalExpression + " " + modifier.entrySet().iterator().next().getValue());
 									return 1;
 							} else if(!rtModifier.isEmpty()) {
-									/*Change the temporal class from DURATION to RT*/
+									setTemporalExpression(rtModifier.entrySet().iterator().next().getValue() + " " + temporalExpression);
+									/*Change the temporal class from DURATION to RT*/									
 									return 2;
 							}
 					} 
